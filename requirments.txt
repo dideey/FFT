@@ -3,3 +3,5 @@ Django==5.1.2
 sqlparse==0.5.1
 django-extensions
 pygraphviz
+djangorestframework
+djangorestframework_simplejwt

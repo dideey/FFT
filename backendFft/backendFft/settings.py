@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'users',
+    'donation',
+    'volunteer',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -99,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+
 ]
 
 
@@ -123,3 +127,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = { 
+	'DEFAULT_AUTHENTICATION_CLASSES': [ 
+		'rest_framework_simplejwt.authentication.JWTAuthentication', 
+	], 
+} 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Keep the default backend
+    'users.authentication.EmailBackend',  # Add your custom backend
+]
