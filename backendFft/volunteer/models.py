@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class VolunteerEvent(models.Model):
-    event_name = models.CharFied(max_length=100)
+    event_name = models.CharField(max_length=100)
     location = models.ForeignKey('donation.Location', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)
@@ -19,9 +19,21 @@ class VolunteerRegistration(models.Model):
     guest_email = models.EmailField(max_length=100, blank=True, null=True)
     guest_phone = models.CharField(max_length=100, blank=True, null=True)
 
-
     def __str__(self):
         return self.volunteer.name
     
     def is_guest(self):
         return self.user is None   
+
+
+class EventSummary(models.Model):
+    month = models.IntegerField()
+    year = models.IntegerField()
+    total_volunteers = models.IntegerField()
+    total_guests = models.IntegerField()
+    total_events = models.IntegerField()
+
+    def __str__(self):
+        return f'Event Summary {self.month}/{self.year}'
+
+  
