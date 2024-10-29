@@ -15,6 +15,10 @@ class UserViewSet(viewsets.ModelViewSet):
     
     @action(detail=False, methods=['post'], url_path='login')
     def login(self, request):
+        """Handles user login and token generation
+            Args: self, request
+            Returns: Response
+        """
         email = request.data['email']
         password = request.data['password']
         print(email, password)
@@ -39,4 +43,4 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response({
             'message': 'Logout successfully'
         })
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated)

@@ -21,5 +21,6 @@ from users import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('users.urls')),
+    path('donation/', include('donation.urls')),
 
 ]
