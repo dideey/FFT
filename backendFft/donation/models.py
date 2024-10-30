@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Donation(models.Model):
+class MonetaryDonation(models.Model):
     amount = models.FloatField()
     donor = models.ForeignKey('users.CustomUser', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
