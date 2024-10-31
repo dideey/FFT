@@ -1,4 +1,4 @@
-from .views import ClothingDonationViewSet, MonetaryDonationViewSet, FoodDonationViewSet, LocationViewSet, LocationListView
+from .views import ClothingDonationViewSet, MonetaryDonationViewSet, FoodDonationViewSet, LocationViewSet, LocationListView, DonationSummaryView
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
@@ -10,5 +10,6 @@ routers.register(r'location', LocationViewSet, basename='location')
 
 urlpatterns = [
     path('', include(routers.urls)),
-    path('location/list/', LocationListView.as_view(), name='location-list')
+    path('location/list/', LocationListView.as_view(), name='location-list'),
+    path('donations/summary/', DonationSummaryView.as_view(), name='donation-summary')
 ]

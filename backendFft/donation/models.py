@@ -27,3 +27,4 @@ class Location(models.Model):
     city = models.CharField(max_length=100)
     contact_info = models.CharField(max_length=100)
 
+
