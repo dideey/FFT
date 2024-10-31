@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MonetaryDonation, ClothingDonation
+from .models import MonetaryDonation, ClothingDonation, FoodDonation,   Location
 
 class ClothingDonationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +11,12 @@ class MonetaryDonationSerializer(serializers.ModelSerializer):
         model = MonetaryDonation
         fields = '__all__'
 
+class FoodDonationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FoodDonation
+        fields = '__all__'
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = '__all__'
